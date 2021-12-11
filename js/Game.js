@@ -15,11 +15,17 @@ class Game{
         ];
 
         // current active phrase. 
-        activePhrase = null;
+        this.activePhrase = this.getRandomPhrase();
     }
 
     startGame(){
+        // adds event listener to reset button to display game
+        document.getElementById("btn__reset").addEventListener('click', (e) => {
+            document.getElementById('overlay').style.display = 'none';
+        })
 
+        // adds current phrase to screen
+        this.activePhrase.addPhraseToDisplay();
     }
 
     // returns a random phrase object from list of phrases. 
