@@ -49,8 +49,21 @@ class Game{
 
     }
 
-    gameOver(){
+    // This method reveals the proper overlay screen depending if player wins or loses. 
+    gameOver(result){
+        //Creates reference to overlay 
+        let gameOverlay = document.getElementById('overlay');
 
+        // Updates overlay message and class. Also reveals overlay
+        if(result === 'win'){
+            document.getElementById('overlay').style.display = 'block';
+            gameOverlay.className = 'win';
+            document.getElementById("game-over-message").innerHTML = "Congratualions! You got it."
+        }else{
+            document.getElementById('overlay').style.display = 'block';
+            gameOverlay.className = 'lose';
+            document.getElementById("game-over-message").innerHTML = "Sorry. Better luck next time."
+        }
     }
 
 
