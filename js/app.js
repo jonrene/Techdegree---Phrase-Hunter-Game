@@ -10,5 +10,6 @@ document.getElementById("btn__reset").addEventListener('click', () => {
     game.startGame();
 })
 
-// Adds functionality to onscreen keyboard
+// Adds functionality to onscreen keyboard 
+// Enables user to play game. 
 document.getElementById('qwerty').addEventListener('click', game.handleInteraction);

@@ -13,7 +13,6 @@ class Game{
                         new Phrase("Better late then never"),
                         new Phrase("The best of both worlds")
         ];
-
         // current active phrase. 
         this.activePhrase = null;
     }
@@ -22,13 +21,13 @@ class Game{
         // Gets rid of game overlay to show game
         document.getElementById('overlay').style.display = 'none';
 
-        // gets a phrase for the current game
+        // gets a phrase for the current round
         this.activePhrase = this.getRandomPhrase();
 
-        // clears phrase if one there
+        // clears phrase if one there for new round
         document.getElementById('phraseList').innerHTML = '';
        
-        // Resets all all lives/hearts and number of missed guesses
+        // Resets all all lives/hearts and number of missed guesses for new round
         this.missed = 0;
         for(let i = 0; i < document.getElementById('livesList').children.length; i++ ){
             document.getElementById('livesList').children[i].firstChild.src = "images/liveHeart.png";
@@ -51,10 +50,10 @@ class Game{
         return this.phrases[Math.floor(Math.random() * 5)];
     }
 
-    // 
+    // Handles game functionality/keyboard interactions to control gameplay
     handleInteraction(e){
         if(e.target.className === 'key'){
-            // creates reference to current key/button
+            // creates reference to current key/button clicked by user
             let key = e.target;
 
             // disables current key/button
@@ -111,7 +110,7 @@ class Game{
         if(result === 'win'){
             document.getElementById('overlay').style.display = 'block';
             gameOverlay.className = 'win';
-            document.getElementById("game-over-message").innerHTML = "Congratualions! You got it."
+            document.getElementById("game-over-message").innerHTML = "Congratulations! You got it."
         }else{
             document.getElementById('overlay').style.display = 'block';
             gameOverlay.className = 'lose';
