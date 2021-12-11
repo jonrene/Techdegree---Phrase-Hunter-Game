@@ -45,8 +45,18 @@ class Game{
         document.getElementById('livesList').children[this.missed - 1].firstChild.src = "images/lostHeart.png";
     }
 
+    // Checks to see if player has won the game. If player wins, returns true. False if otherwise. 
     checkForWin(){
+        // creates list of objects with the class letter. 
+        const letters = document.getElementsByClassName('letter');
 
+        // Loops through all letters in current phrase to see if they have been revealed. 
+        for(let i = 0; i < letters.length; i++){
+            if(letters[i].className != 'show'){
+                return false;
+            }
+        }
+        return true;
     }
 
     // This method reveals the proper overlay screen depending if player wins or loses. 
