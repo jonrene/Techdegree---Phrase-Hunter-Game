@@ -9,6 +9,7 @@ class Phrase{
 
     // This function adds the hidden phrase to screen.
     addPhraseToDisplay(){
+        // creates reference to phraseList
         let phraseList = document.getElementById("phraseList");
         
         // This iterates through current phrase and creates an LI element for each character in phrase.
@@ -33,12 +34,21 @@ class Phrase{
         }
     }
 
+    // checks to see if given letter is in the phrase
     checkLetter(letter){
-        // checks to see if given letter is in the phrase
         return this.phrase.includes(letter.toLowerCase());
     }
 
-    showMatchedLetter(){
-
+    // reveals all instances of given letter on screen if it's in the phrase
+    showMatchedLetter(letter){ 
+         // creates reference to phraseList
+         let phraseList = document.getElementById("phraseList");
+        
+        // reveals letter on screen if part of phrase. 
+        for(let i = 0; i < phraseList.children.length; i++){
+            if(phraseList.children[i].innerHTML === letter){
+                phraseList.children[i].className = 'show'
+            }
+        }
     }
 }
