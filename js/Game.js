@@ -18,4 +18,32 @@ class Game{
         activePhrase = null;
     }
 
+    startGame(){
+
+    }
+
+    // returns a random phrase object from list of phrases. 
+    getRandomPhrase(){
+        return this.phrases[Math.floor(Math.random() * 5)];
+    }
+
+    handleInteraction(){
+
+    }
+
+    removeLife(){
+
+    }
+
+    checkForWin(){
+
+    }
+
+    gameOver(){
+
+    }
+
+
+
+
 }
