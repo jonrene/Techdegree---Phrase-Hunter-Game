@@ -15,17 +15,20 @@ class Game{
         ];
 
         // current active phrase. 
-        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase = null;
     }
 
     startGame(){
-        // adds event listener to reset button to display game
-        document.getElementById("btn__reset").addEventListener('click', (e) => {
-            document.getElementById('overlay').style.display = 'none';
-        })
+        // Gets rid of game overlay to show game
+        document.getElementById('overlay').style.display = 'none';
+
+        // gets a phrase for the current game
+        this.activePhrase = this.getRandomPhrase();
 
         // adds current phrase to screen
         this.activePhrase.addPhraseToDisplay();
+
+        
     }
 
     // returns a random phrase object from list of phrases. 
@@ -37,8 +40,9 @@ class Game{
 
     }
 
+    // This method removes a life/heart from a player on screen
     removeLife(){
-
+        document.getElementById('livesList').children[this.missed - 1].firstChild.src = "images/lostHeart.png";
     }
 
     checkForWin(){
